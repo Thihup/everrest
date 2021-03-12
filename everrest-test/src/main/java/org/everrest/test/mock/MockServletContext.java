@@ -310,6 +310,11 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
+    public ServletRegistration.Dynamic addJspFile(String s, String s1) {
+        throw new UnsupportedOperationException("not supported");
+    }
+
+    @Override
     public <T extends Servlet> T createServlet(Class<T> clazz) throws ServletException {
         throw new UnsupportedOperationException("not supported");
     }
@@ -407,5 +412,35 @@ public class MockServletContext implements ServletContext {
     @Override
     public String getVirtualServerName() {
         return null;
+    }
+
+    @Override
+    public int getSessionTimeout() {
+        return 0;
+    }
+
+    @Override
+    public void setSessionTimeout(int i) {
+        throw new UnsupportedOperationException("not supported");
+    }
+
+    @Override
+    public String getRequestCharacterEncoding() {
+        throw new UnsupportedOperationException("not supported");
+    }
+
+    @Override
+    public void setRequestCharacterEncoding(String s) {
+        throw new UnsupportedOperationException("not supported");
+    }
+
+    @Override
+    public String getResponseCharacterEncoding() {
+        throw new UnsupportedOperationException("not supported");
+    }
+
+    @Override
+    public void setResponseCharacterEncoding(String s) {
+        throw new UnsupportedOperationException("not supported");
     }
 }

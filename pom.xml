@@ -94,21 +94,23 @@
         <ch.qos.logback.version>1.1.2</ch.qos.logback.version>
         <com.google.code.guice.version>4.1.0</com.google.code.guice.version>
         <com.google.guava.version>18.0</com.google.guava.version>
-        <com.sun.xml.bind>2.3.0.1</com.sun.xml.bind>
+        <com.sun.xml.bind.core>2.3.0.1</com.sun.xml.bind.core>
+        <com.sun.xml.bind.impl>2.3.3</com.sun.xml.bind.impl>
         <com.tngtech.java>1.9.3</com.tngtech.java>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <commons-io.version>2.4</commons-io.version>
         <currentYear>2016</currentYear>
         <gpg.useagent>true</gpg.useagent>
         <groovy.version>1.7.6</groovy.version>
-        <javax.activation.version>1.1</javax.activation.version>
-        <javax.annotation.version>1.2</javax.annotation.version>
-        <javax.inject.version>1</javax.inject.version>
-        <javax.mail.version>1.4.4</javax.mail.version>
-        <javax.servlet.version>3.1.0</javax.servlet.version>
-        <javax.websocket.api.version>1.1</javax.websocket.api.version>
-        <javax.ws.rs.version>2.0</javax.ws.rs.version>
-        <javax.xml.bind.version>2.3.0</javax.xml.bind.version>
+        <jakarta.activation.api.version>1.2.2</jakarta.activation.api.version>
+        <jakarta.activation.version>1.2.2</jakarta.activation.version>
+        <jakarta.annotation.version>1.3.5</jakarta.annotation.version>
+        <jakarta.inject.version>1.0.3</jakarta.inject.version>
+        <jakarta.mail.version>1.6.6</jakarta.mail.version>
+        <jakarta.servlet.version>4.0.4</jakarta.servlet.version>
+        <jakarta.websocket.api.version>1.1.2</jakarta.websocket.api.version>
+        <jakarta.ws.rs.version>2.1.6</jakarta.ws.rs.version>
+        <jakarta.xml.bind.version>2.3.3</jakarta.xml.bind.version>
         <jdk.min.version>1.8</jdk.min.version>
         <jetty.version>9.4.19.v20190610</jetty.version>
         <junit.version>4.11</junit.version>
@@ -184,14 +186,19 @@
                 <version>${resetassured.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.sun.activation</groupId>
+                <artifactId>jakarta.activation</artifactId>
+                <version>${jakarta.activation.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-core</artifactId>
-                <version>${com.sun.xml.bind}</version>
+                <version>${com.sun.xml.bind.core}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-impl</artifactId>
-                <version>${com.sun.xml.bind}</version>
+                <version>${com.sun.xml.bind.impl}</version>
             </dependency>
             <dependency>
                 <groupId>com.tngtech.java</groupId>
@@ -209,46 +216,39 @@
                 <version>${commons-io.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.activation</groupId>
-                <artifactId>activation</artifactId>
-                <version>${javax.activation.version}</version>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>${jakarta.activation.api.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>${javax.annotation.version}</version>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-                <version>${javax.inject.version}</version>
+                <groupId>jakarta.inject</groupId>
+                <artifactId>jakarta.inject-api</artifactId>
+                <version>${jakarta.inject.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.mail</groupId>
-                <artifactId>mail</artifactId>
-                <version>${javax.mail.version}</version>
-                <!-- Java6 has it -->
-                <exclusions>
-                    <exclusion>
-                        <artifactId>activation</artifactId>
-                        <groupId>javax.activation</groupId>
-                    </exclusion>
-                </exclusions>
+                <groupId>jakarta.mail</groupId>
+                <artifactId>jakarta.mail-api</artifactId>
+                <version>${jakarta.mail.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet.version}</version>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>${jakarta.servlet.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.ws.rs</groupId>
-                <artifactId>javax.ws.rs-api</artifactId>
-                <version>${javax.ws.rs.version}</version>
+                <groupId>jakarta.ws.rs</groupId>
+                <artifactId>jakarta.ws.rs-api</artifactId>
+                <version>${jakarta.ws.rs.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.xml.bind</groupId>
-                <artifactId>jaxb-api</artifactId>
-                <version>${javax.xml.bind.version}</version>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jakarta.xml.bind.version}</version>
             </dependency>
             <!-- Third part dependencies -->
             <dependency>
@@ -356,9 +356,9 @@
                 <version>${org.slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.websocket</groupId>
-                <artifactId>javax.websocket-api</artifactId>
-                <version>${javax.websocket.api.version}</version>
+                <groupId>jakarta.websocket</groupId>
+                <artifactId>jakarta.websocket-api</artifactId>
+                <version>${jakarta.websocket.api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
