@@ -15,8 +15,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>everrest-parent</artifactId>
         <groupId>org.everrest</groupId>
+        <artifactId>everrest-parent</artifactId>
         <version>1.14.5-SNAPSHOT</version>
     </parent>
     <artifactId>everrest-groovy</artifactId>
@@ -32,7 +32,7 @@
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
+            <artifactId>groovy</artifactId>
         </dependency>
         <dependency>
             <groupId>org.everrest</groupId>
@@ -76,7 +76,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <tasks unless="maven.test.skip">
+                            <target unless="maven.test.skip">
                                 <echo>***** Creating Access Policy for tests *****</echo>
                                 <makeurl file="${settings.localRepository}" property="localRepositoryURL" />
                                 <makeurl file="${project.build.outputDirectory}" property="outputDirectoryURL" />
@@ -94,7 +94,7 @@
                                         <filter token="PARENT" value="${parentDirectoryURL}" />
                                     </filterset>
                                 </copy>
-                            </tasks>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
