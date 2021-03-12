@@ -42,6 +42,7 @@ import org.everrest.core.impl.provider.SAXSourceEntityProvider;
 import org.everrest.core.impl.provider.StreamOutputEntityProvider;
 import org.everrest.core.impl.provider.StreamSourceEntityProvider;
 import org.everrest.core.impl.provider.StringEntityProvider;
+import org.everrest.core.impl.provider.jsonp.JsonpProvider;
 import org.everrest.core.impl.provider.multipart.CollectionMultipartFormDataMessageBodyWriter;
 import org.everrest.core.impl.provider.multipart.ListMultipartFormDataMessageBodyReader;
 import org.everrest.core.impl.provider.multipart.MapMultipartFormDataMessageBodyReader;
@@ -865,6 +866,10 @@ public class ProviderBinder implements Providers {
         JsonEntityProvider<Object> jsonEntityProvider = new JsonEntityProvider<>();
         addMessageBodyReader(jsonEntityProvider);
         addMessageBodyWriter(jsonEntityProvider);
+
+        JsonpProvider jsonpProvider = new JsonpProvider();
+        addMessageBodyReader(jsonpProvider);
+        addMessageBodyWriter(jsonpProvider);
 
         addMessageBodyReader(JAXBElementEntityProvider.class);
         addMessageBodyWriter(JAXBElementEntityProvider.class);
